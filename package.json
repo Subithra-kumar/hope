@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sataniceypz/Izumi-xd.git"
+    "url": "git+https://github.com/sataniceypz/Izumi-v3.git"
   },
   "keywords": [
     "bot",
@@ -22,9 +22,9 @@
   "developer": "Zeta",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/eypz/Izumi-xd/issues"
+    "url": "https://github.com/sataniceypz/Izumi-v3/issues"
   },
-  "homepage": "https://github.com/eypz/Izumi-xd#readme",
+  "homepage": "https://github.com/sataniceypz/Izumi-v3#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "git+https://github.com/A-d-i-t-h-y-a-n/Baileys.js.git",
     "@adiwajshing/keyed-db": "^0.2.4",
