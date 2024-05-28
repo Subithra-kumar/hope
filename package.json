@@ -22,11 +22,11 @@
   "developer": "Zeta",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/sataniceypz/Izumi-xd/issues"
+    "url": "https://github.com/eypz/Izumi-xd/issues"
   },
-  "homepage": "https://github.com/Sataniceypz/Izumi-xd#readme",
+  "homepage": "https://github.com/eypz/Izumi-xd#readme",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.6.0",
+    "@whiskeysockets/baileys": "git+https://github.com/A-d-i-t-h-y-a-n/Baileys.js.git",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "3.0.0",
     "@neeraj-x0/textpro": "^1.0.3",
