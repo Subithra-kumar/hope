@@ -99,7 +99,7 @@ izumi({
   var { url } = await getJson('https://api.maher-zubair.tech/anime/nezuko');
   await message.sendFromUrl(url);
 });
-
+/*
 izumi({
   pattern: "naruto",
   fromMe: true,
@@ -109,7 +109,7 @@ izumi({
   var { url } = await getJson('https://api.maher-zubair.tech/anime/naruto');
   await message.sendFromUrl(url);
 });
-
+*/
 izumi({
   pattern: "miku",
   fromMe: true,
