@@ -12,7 +12,6 @@ const fs = require("fs");
 const { serialize } = require("./lib/serialize");
 const pino = require("pino");
 const path = require("path");
-const events = require("./lib/events");
 const got = require("got");
 const config = require("./config");
 const { PluginDB } = require("./lib/database/plugins");
@@ -78,20 +77,6 @@ if (!fs.existsSync("./lib/session/creds.json")) {
   );
 }
 
-/*	
-     if (!fs.existsSync("./session")) fs.mkdirSync("./session");
-     if (!fs.existsSync("./session/creds.json") && config.SESSION_ID) {
-    const creds = await loadSession(config.SESSION_ID);
-    fs.writeFileSync("./session/creds.json", JSON.stringify(creds.data));
-  }
-  */
-/*
-  const {
-const {
-    data
-  } = await axios(`https://pastebin.com/raw/${config.SESSION_ID}`);
-  await fs.writeFileSync("./auth/creds.json", JSON.stringify(data));
-*/
   try {
     console.log("Connecting to WhatsApp...");
     const { state, saveCreds } = await useMultiFileAuthState(
