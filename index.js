@@ -102,7 +102,7 @@ const {
     const logger = pino({ level: "silent" });
     const client = makeWASocket({
       logger,
-      printQRInTerminal: true,
+      printQRInTerminal: false,
       downloadHistory: false,
       syncFullHistory: false,
       browser: Browsers.macOS("Desktop"),
