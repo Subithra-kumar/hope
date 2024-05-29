@@ -1,4 +1,4 @@
-const { izumi, mode } = require('../lib/');
+const { izumi, mode,formatTime } = require('../lib/');
 
  izumi({
 	pattern: 'ping ?(.*)',
@@ -21,3 +21,11 @@ izumi({
 }, async (message) => {
 	await message.send(message.mention[0] ? message.mention[0] : message.quoted ? message.quoted.sender : message.chat)
 });
+izumi({
+	pattern: 'runtime',
+	fromMe: mode,
+	desc: 'Get bots runtime',
+	type: 'info'
+}, async (message, match, client) => {
+	await message.reply(formatTime(process.uptime()));
+})
