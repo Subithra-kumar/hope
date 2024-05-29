@@ -10,7 +10,6 @@ const {
 } = require("@whiskeysockets/baileys");
 const fs = require("fs");
 const { serialize } = require("./lib/serialize");
-const { Message, Image, Sticker } = require("./lib/Base");
 const pino = require("pino");
 const path = require("path");
 const events = require("./lib/event");
