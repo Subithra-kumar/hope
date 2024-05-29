@@ -1,49 +1,38 @@
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
-if (fs.existsSync("config.env"))
-  require("dotenv").config({ path: "./config.env" });
+require('dotenv').config();
 
-const toBool = (x) => x == "true";
+if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env', override: true });
 
-DATABASE_URL = process.env.DATABASE_URL || "./lib/database.db";
-let HANDLER = "false";
+// Function to convert text to boolean
+function convertToBool(text, fault = 'true') {
+    return text === fault ? true : false;
+}
+
+// Function to convert string to boolean
+const toBool = (x) => (x && x.toLowerCase() === 'true') || false;
+
+// Define the Sequelize instance based on DATABASE_URL
+const DATABASE_URL = process.env.DATABASE_URL === undefined ? './database.db' : process.env.DATABASE_URL;
+DEBUG = process.env.DEBUG === undefined ? false : convertToBool(process.env.DEBUG);
+// Export configuration variables
 module.exports = {
-  ANTILINK: toBool(process.env.ANTI_LINK) || false,
-  LOGS: toBool(process.env.LOGS) || true,
-  ANTILINK_ACTION: process.env.ANTI_LINK || "kick",
-  SESSION_ID:process.env.SESSION_ID || " ",
-  LANG: process.env.LANG || "EN",
   HANDLERS: (process.env.PREFIX || '^[.,!]').trim(),
   MODE: (process.env.MODE || 'private').toLowerCase(),
   ERROR_MSG: toBool(process.env.ERROR_MSG) || true,
   LOG_MSG: toBool(process.env.LOG_MSG) || true,
-  BRANCH: "main",
-  WARN_COUNT: 3,
-  STICKER_DATA: process.env.STICKER_DATA || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
-  BOT_INFO: process.env.BOT_INFO || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙;https://i.imgur.com/Uc0uIkO.jpeg",
-  AUDIO_DATA: process.env.AUDIO_DATA || "𝐄𝐘𝐏𝐙;𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;https://i.imgur.com/Uc0uIkO.jpeg",
-  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
-  CAPTION: process.env.CAPTION || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
+  READ_CMD: toBool(process.env.READ_CMD),
+  SESSION_ID: process.env.SESSION_ID || null,
+  READ_MSG: toBool(process.env.READ_MSG),
+  OWNER_NAME: process.env.OWNER_NAME || "Mask Ser",
+  BOT_NAME: process.env.BOT_NAME || "Mask-md",
+  SUDO: process.env.SUDO || '919544951258',
+  PACKNAME: process.env.PACKNAME || "Mask-md",
+  PROCESSNAME: process.env.PROCESSNAME || "Mask-md",
+  AUTHOR: process.env.AUTHOR || "Mask ser",
+  DELETED_LOG_CHAT: process.env.DELETED_LOG_CHAT || false,
   DATABASE_URL: DATABASE_URL,
   DATABASE:
-    DATABASE_URL === "./lib/database.db"
-      ? new Sequelize({
-          dialect: "sqlite",
-          storage: DATABASE_URL,
-          logging: false,
-        })
-      : new Sequelize(DATABASE_URL, {
-          dialect: "postgres",
-          ssl: true,
-          protocol: "postgres",
-          dialectOptions: {
-            native: true,
-            ssl: { require: true, rejectUnauthorized: false },
-          },
-          logging: false,
-        }),
-  HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || " ",
-  HEROKU_API_KEY: process.env.HEROKU_API_KEY || " ",
-  SUDO: process.env.SUDO || "0",
-  IMGBB_KEY: ["76a050f031972d9f27e329d767dd988f", "deb80cd12ababea1c9b9a8ad6ce3fab2", "78c84c62b32a88e86daf87dd509a657a"],
+       DATABASE_URL === './database.db' ? new Sequelize({dialect: 'sqlite', storage: DATABASE_URL, logging: false,}) : new Sequelize(DATABASE_URL, {dialect: 'postgres', ssl: true, protocol: 'postgres', dialectOptions: {native: true, ssl: { require: true, rejectUnauthorized: false },}, logging: false,}),
+  DEBUG: DEBUG
 };
