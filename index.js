@@ -7,7 +7,7 @@ const {
   delay,
   makeCacheableSignalKeyStore,
   makeInMemoryStore
-} = require("@whiskeysockets/baileys");
+} = require("@adiwajshing/baileys");
 const fs = require("fs");
 const { serialize } = require("./lib/serialize");
 const pino = require("pino");
