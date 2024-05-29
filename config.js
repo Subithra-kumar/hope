@@ -13,7 +13,10 @@ module.exports = {
   ANTILINK_ACTION: process.env.ANTI_LINK || "kick",
   SESSION_ID:process.env.SESSION_ID || " ",
   LANG: process.env.LANG || "EN",
-  HANDLERS: process.env.PREFIX || '^[.]',
+  HANDLERS: (process.env.PREFIX || '^[.,!]').trim(),
+  MODE: (process.env.MODE || 'private').toLowerCase(),
+  ERROR_MSG: toBool(process.env.ERROR_MSG) || true,
+  LOG_MSG: toBool(process.env.LOG_MSG) || true,
   BRANCH: "main",
   WARN_COUNT: 3,
   STICKER_DATA: process.env.STICKER_DATA || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;𝐄𝐘𝐏𝐙",
@@ -21,7 +24,6 @@ module.exports = {
   AUDIO_DATA: process.env.AUDIO_DATA || "𝐄𝐘𝐏𝐙;𝗜𝗭𝗨𝗠𝗜 𝗫𝗗;https://i.imgur.com/Uc0uIkO.jpeg",
   ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
   CAPTION: process.env.CAPTION || "𝗜𝗭𝗨𝗠𝗜 𝗫𝗗",
-  WORK_TYPE: process.env.WORK_TYPE || "private",
   DATABASE_URL: DATABASE_URL,
   DATABASE:
     DATABASE_URL === "./lib/database.db"
