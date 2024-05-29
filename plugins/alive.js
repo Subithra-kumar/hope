@@ -14,7 +14,7 @@ const { izumi, mode } = require('../lib/');
 });
 
 izumi({
-	pattern: "jid ?(.*)"
+	pattern: "jid ?(.*)",
 	fromMe: mode,
 	desc: 'To get remoteJid',
 	type: 'whatsapp'
