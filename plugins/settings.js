@@ -1,4 +1,4 @@
-const { izumi } = require('../lib/');
+const { izumi,mode } = require('../lib/');
 
 izumi({
 	pattern: 'reboot',
