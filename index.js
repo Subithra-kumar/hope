@@ -22,7 +22,6 @@ const {
   saveChat,
 } = require("./lib/database/store");
 const { Message, commands, numToJid, sudoIds, PREFIX } = require("./lib/index");
-const Greetings = require("./lib/Greetings");
 const { MakeSession } = require("./lib/session");
 const store = makeInMemoryStore({
   logger: pino().child({ level: "silent", stream: "store" }),
