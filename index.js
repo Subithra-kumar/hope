@@ -138,6 +138,12 @@ if (!fs.existsSync("./lib/session/creds.json")) {
             message.text || message.type || null
           }`
         );
+        if (!(
+    (message.fromMe && message.id.startsWith('BAE5') && (message.id.length == 12 || message.id.length == 16)) &&
+    (!message.text || !/(kick|warn|dlt)$/.test(message.text))
+)) {
+    return;
+}
       if (
         config.READ_MSG == true &&
         message.data.key.remoteJid !== "status@broadcast"
